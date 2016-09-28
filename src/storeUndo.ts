@@ -9,7 +9,7 @@ export const UNDO_ACTION = "ngrx-undo/UNDO_ACTION";
     ]
 })
 export class StoreUndoModule {
-    static instrumentStore(options = {bufferSize: 100}) {
+    static interceptStore(options = {bufferSize: 100}) {
         return {
             ngModule: StoreUndoModule,
             providers: [

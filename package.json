@@ -1,6 +1,6 @@
 {
   "name": "ngrx-undo",
-  "version": "0.0.8",
+  "version": "1.0.0",
   "description": "Undo support for @ngrx/store",
   "scripts": {
     "karma": "karma start --single-run",
