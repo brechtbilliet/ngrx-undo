@@ -1,8 +1,8 @@
 export default {
     entry: './release/index.js',
-    dest: './release/bundles/store-devtools.umd.js',
+    dest: './release/bundles/ngrx-undo.umd.js',
     format: 'umd',
-    moduleName: 'ngrx.storeDevtools',
+    moduleName: 'ngrx-undo',
     globals: {
         '@angular/core': 'ng.core',
         '@ngrx/core/operator/select': 'ngrx.core',
