@@ -2,6 +2,17 @@
   "name": "ngrx-undo",
   "version": "1.0.0",
   "description": "Undo support for @ngrx/store",
+  "license": "MIT",
+  "repository": "brechtbilliet/ngrx-undo",
+  "author": {
+    "name": "Brecht Billiet",
+    "email": "billietbrecht@gmail.com",
+    "url": "http://www.brecht.io/"
+  },
+  "engines": {
+    "node": ">= 4.2.1 <= 6",
+    "npm": ">= 3"
+  },
   "scripts": {
     "karma": "karma start --single-run",
     "test": "npm run karma",
@@ -16,18 +27,8 @@
     "buildprod": "npm run buildprod:js && npm run buildprod:umd && npm run buildprod:uglify",
     "deploy": "npm run buildprod && cd ./release && npm publish"
   },
-  "bugs": {
-    "url": "https://github.com/brechtbilliet/ngrx-undo/issues"
-  },
-  "homepage": "https://github.com/brechtbilliet/ngrx-undo#readme",
   "main": "./bundles/store-undo.umd.js",
   "module": "./index.js",
-  "author": "",
-  "license": "MIT",
-  "engines": {
-    "node": ">= 4.2.1 <= 6",
-    "npm": ">= 3"
-  },
   "devDependencies": {
     "@angular/compiler": "2.0.0",
     "@angular/compiler-cli": "0.6.3",
