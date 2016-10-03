@@ -27,7 +27,7 @@
     "buildprod": "npm run buildprod:js && npm run buildprod:umd && npm run buildprod:uglify",
     "deploy": "npm run buildprod && cd ./release && npm publish"
   },
-  "main": "./bundles/store-undo.umd.js",
+  "main": "./bundles/ngrx-undo.umd.js",
   "module": "./index.js",
   "devDependencies": {
     "@angular/compiler": "2.0.0",
