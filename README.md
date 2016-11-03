@@ -6,7 +6,7 @@ The goal of this package is described in this blogpost [Cancellable optimistic u
 
 ## Installation
 
-````
+```
 $ npm install --save ngrx-undo
 ```
 
@@ -31,39 +31,39 @@ export class AppModule { }
 
 > Note: You must intercept after importing `StoreModule`!
 
-To undo an action simply do the following:
+To undo an action, simply use the `undo` action creator.
 
 ```typescript
-import {UNDO_ACTION} from "ngrx-undo";
+import {undo} from "ngrx-undo";
 
 // create an action
-let action = {type: REMOVE_WINE, payload: {_id: wine._id}};
+let action = {type: REMOVE_WINE, payload: {id: wine.id}};
 
 // dispatch it
 this.store.dispatch(action);
 
 // undo the action
-this.store.dispatch({type: UNDO_ACTION, payload: action});
+this.store.dispatch(undo(action));
 ```
 
 A more concrete example could look like this:
 
 ```typescript
-import {UNDO_ACTION} from "ngrx-undo";
+import {undo} from "ngrx-undo";
 
 remove(wine: Wine): void {
     // create an action
-    let action = {type: REMOVE_WINE, payload: {_id: wine._id}};
+    let action = {type: REMOVE_WINE, payload: {id: wine.id}};
     // dispatch the action to the store
     this.store.dispatch(action);
     // call the backend
-    this.http.delete(`${API_URL}/wines/${wine._id}`)
+    this.http.delete(`${API_URL}/wines/${wine.id}`)
         .subscribe(
             // on success, do nothing
             () => {},
             // on error, rollback the action
             () => {
-                this.store.dispatch({type: UNDO_ACTION, payload: action}); // this is important!
+                this.store.dispatch(undo(action)); // this is important!
                 // maybe show somekind of errormessage to show the user that it's action failed
             }
         );
