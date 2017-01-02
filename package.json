@@ -10,7 +10,7 @@
     "url": "http://www.brecht.io/"
   },
   "engines": {
-    "node": ">= 4.2.1 <= 6",
+    "node": ">= 4.2.1 <= 7",
     "npm": ">= 3"
   },
   "scripts": {
