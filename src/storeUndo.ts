@@ -1,6 +1,6 @@
-import {Reducer, Dispatcher, INITIAL_REDUCER, StoreModule, Action} from "@ngrx/store";
-import {OpaqueToken, NgModule} from "@angular/core";
-import {createReducer} from "./createReducer";
+import { Reducer, Dispatcher, INITIAL_REDUCER, StoreModule } from '@ngrx/store';
+import { OpaqueToken, NgModule } from '@angular/core';
+import { createReducer } from './createReducer';
 export {UNDO_ACTION, undo} from "./undoAction";
 export const UNDO_DEVTOOLS_CONFIG = new OpaqueToken('@ngrx/undodevtools Options');
 @NgModule({
