@@ -1,6 +1,6 @@
 {
   "name": "ngrx-undo",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Undo support for @ngrx/store",
   "license": "MIT",
   "repository": "brechtbilliet/ngrx-undo",
@@ -15,14 +15,13 @@
   },
   "scripts": {
     "karma": "karma start --single-run",
-    "test": "npm run karma",
     "clean:pre": "rimraf release",
     "clean:post": "rimraf src/**/*.ngfactory.ts",
     "copy": "cpy LICENSE package.json README.md release",
     "buildprod:js": "ngc -p tsconfig.dist.json",
     "buildprod:umd": "rollup -c rollup.config.js",
     "buildprod:uglify": "uglifyjs -c --screw-ie8 --comments -o ./release/bundles/ngrx-undo.min.umd.js ./release/bundles/ngrx-undo.umd.js",
-    "prebuildprod": "npm run test && npm run clean:pre",
+    "prebuildprod": "npm run clean:pre",
     "postbuildprod": "npm run clean:post && npm run copy",
     "buildprod": "npm run buildprod:js && npm run buildprod:umd && npm run buildprod:uglify",
     "deploy": "npm run buildprod && cd ./release && npm publish"
@@ -30,13 +29,13 @@
   "main": "./bundles/ngrx-undo.umd.js",
   "module": "./index.js",
   "devDependencies": {
-    "@angular/compiler": "2.0.0",
-    "@angular/compiler-cli": "0.6.3",
+    "@angular/compiler": "^4.0.1",
+    "@angular/compiler-cli": "^4.0.1",
+    "@angular/core": "^4.0.1",
+    "@ngrx/core": "^1.2.0",
+    "@ngrx/store": "^2.2.1",
     "rimraf": "2.5.4",
-    "@angular/core": "2.0.0",
-    "@ngrx/core": "1.2.0",
-    "@ngrx/store": "2.2.1",
-    "rxjs": "5.0.0-beta.12",
+    "rxjs": "5.1.0",
     "@types/jasmine": "^2.2.33",
     "@types/node": "^6.0.38",
     "awesome-typescript-loader": "^2.2.1",
@@ -55,13 +54,13 @@
     "ts-loader": "^0.8.2",
     "tslint": "^3.15.1",
     "tslint-loader": "^2.1.5",
-    "typescript": "^2.0.2",
+    "typescript": "^2.1.5",
     "uglifyjs": "^2.4.10",
     "webpack": "^2.1.0-beta.21",
-    "zone.js": "^0.6.17"
+    "zone.js": "^0.7.8"
   },
   "peerDependencies": {
-    "rxjs": "^5.0.0-beta.12",
-    "@ngrx/store": "^2.0.0"
+    "rxjs": "^5.1.0",
+    "@ngrx/store": "^2.2.1"
   }
 }
