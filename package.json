@@ -1,6 +1,6 @@
 {
   "name": "ngrx-undo",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Undo support for @ngrx/store",
   "license": "MIT",
   "repository": "brechtbilliet/ngrx-undo",
