@@ -1,6 +1,6 @@
 # ngrx-store
 
-This package contains undo functionality for [@ngrx/store](https://github.com/ngrx/store).
+This package contains undo functionality for [@ngrx/store (4+)](https://github.com/ngrx/platform).
 The goal of this package is described in this blogpost [Cancellable optimistic updates in angular2 and redux](http://blog.brecht.io/Cancellable-optimistic-updates-in-Angular2-and-Redux/) written by [Brecht Billiet](http://brecht.io)
 
 
@@ -13,23 +13,22 @@ $ npm install --save ngrx-undo
 
 ## Usage
 
-To use `ngrx-undo`, you will need to setup the providers using  `interceptStore({bufferSize: 100})`
+The previous version of ngrx-undo was created for @ngrx/store 2 and was completely integrated with angular modules. Because the complete API got changed it seemed easier to keep it simple. For that reason we dropped the angular dependency and decided to keep the config a bit easier.
 
 ```typescript
-import {StoreUndoModule} from 'ngrx-undo';
+import {handleUndo, configureBufferSize} from 'ngrx-undo';
+
+// if you want to update the buffer (which defaults to 100)
+configureBufferSize(150);
 
 @NgModule({
     imports: [
-        StoreModule.provideStore(rootReducer),
-        StoreUndoModule.interceptStore({
-            bufferSize: 200 // Set the size of the buffer (Default: 100)
-        })
+        // pass the handleUndo in the metaReducers
+        StoreModule.provideStore(rootReducer, metaReducers: [handleUndo]) 
     ]
 })
 export class AppModule { }
 ```
-
-> Note: You must intercept after importing `StoreModule`!
 
 To undo an action, simply use the `undo` action creator.
 
@@ -68,24 +67,4 @@ remove(wine: Wine): void {
             }
         );
 }
-```
-
-### What if you are using @ngrx/store-devtools
-
-Just make sure your import is the last :-)
-
-```typescript
-@NgModule({
-    imports: [
-        StoreModule.provideStore(rootReducer),
-        StoreDevtoolsModule.instrumentStore({
-            monitor: useLogMonitor({
-                visible: false,
-                position: "right"
-            })
-        }),
-        StoreUndoModule.interceptStore({bufferSize: 100})
-    ]
-})
-export class AppModule { }
 ```
