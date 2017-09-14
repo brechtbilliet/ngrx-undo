@@ -1,10 +1,15 @@
-import {ActionReducer, Action} from "@ngrx/store";
-import {UNDO_ACTION} from "./storeUndo";
-export function handleUndo(rootReducer: ActionReducer<any>,
-                              bufferSize): ActionReducer<any> {
+import { Action, ActionReducer } from '@ngrx/store';
+import { UNDO_ACTION } from './undoAction';
+
+
+let bufferSize = 100;
+export function configureBufferSize(size: number): void {
+    bufferSize = size;
+}
+export function handleUndo(rootReducer: ActionReducer<any>): ActionReducer<any> {
     let executedActions: Array<Action> = [];
     let initialState = undefined;
-    return (state: any, action: Action) => {
+    return (state: any, action: any) => {
         if (action.type === UNDO_ACTION) {
             // if the action is UNDO_ACTION,
             // then call all the actions again on the rootReducer,
