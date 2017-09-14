@@ -24,7 +24,7 @@ configureBufferSize(150);
 @NgModule({
     imports: [
         // pass the handleUndo in the metaReducers
-        StoreModule.provideStore(rootReducer, metaReducers: [handleUndo]) 
+        StoreModule.provideStore(rootReducer, {metaReducers: [handleUndo]}) 
     ]
 })
 export class AppModule { }
