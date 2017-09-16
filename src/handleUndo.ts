@@ -8,25 +8,27 @@ export function configureBufferSize(size: number): void {
 }
 export function handleUndo(rootReducer: ActionReducer<any>): ActionReducer<any> {
     let executedActions: Array<Action> = [];
-    let initialState = undefined;
+    let initialState = '__NO_INITIAL_STATE__';
     return (state: any, action: any) => {
+        if (initialState === '__NO_INITIAL_STATE__') {
+            initialState = state;
+        }
+
         if (action.type === UNDO_ACTION) {
             // if the action is UNDO_ACTION,
             // then call all the actions again on the rootReducer,
             // except the one we want to rollback
-            let newState: any = initialState;
             executedActions = executedActions.filter(eAct => eAct !== action.payload);
-            // update the state for every action untill we get the
+            // update the state for every action until we get the
             // exact same state as before, but without the action we want to rollback
-            executedActions.forEach(executedAction =>
-                newState = rootReducer(newState, executedAction));
-            return newState;
+            return executedActions.reduce((newState, executedAction) =>
+                rootReducer(newState, executedAction), initialState);
         }
         // push every action that isn't an UNDO_ACTION to the executedActions property
         executedActions.push(action);
-        let updatedState = rootReducer(state, action);
+        const updatedState = rootReducer(state, action);
         if (executedActions.length === bufferSize + 1) {
-            let firstAction = executedActions[0];
+            const firstAction = executedActions[0];
             // calculate the state x (buffersize) actions ago
             initialState = rootReducer(initialState, firstAction);
             // keep the correct actions
