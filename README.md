@@ -1,4 +1,4 @@
-# ngrx-store
+# ngrx-undo
 
 This package contains undo functionality for [@ngrx/store (4+)](https://github.com/ngrx/platform).
 The goal of this package is described in this blogpost [Cancellable optimistic updates in angular2 and redux](http://blog.brecht.io/Cancellable-optimistic-updates-in-Angular2-and-Redux/) written by [Brecht Billiet](http://brecht.io)
