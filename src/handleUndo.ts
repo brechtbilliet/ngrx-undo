@@ -4,6 +4,8 @@ import { UNDO_ACTION } from './undoAction';
 const STORE_INIT_ACTION = '@ngrx/store/init';
 const STORE_UPDATE_ACTION = '@ngrx/store/update-reducers';
 
+let executedActions: Array<Action> = [];
+let initialState;
 let bufferSize = 100;
 
 export function configureBufferSize(size: number): void {
@@ -11,8 +13,6 @@ export function configureBufferSize(size: number): void {
 }
 
 export function handleUndo(rootReducer: ActionReducer<any>): ActionReducer<any> {
-    let executedActions: Array<Action> = [];
-    let initialState = undefined;
     return (state: any, action: any) => {
         if (action.type === UNDO_ACTION) {
             // if the action is UNDO_ACTION,
@@ -30,9 +30,9 @@ export function handleUndo(rootReducer: ActionReducer<any>): ActionReducer<any> 
             // push every action that isn't an UNDO_ACTION, STORE_INIT_ACTION, or STORE_UPDATE_ACTION to the executedActions property
             executedActions.push(action);
         }
-        let updatedState = rootReducer(state, action);
+        const updatedState = rootReducer(state, action);
         if (executedActions.length === bufferSize + 1) {
-            let firstAction = executedActions[0];
+            const firstAction = executedActions[0];
             // calculate the state x (buffersize) actions ago
             initialState = rootReducer(initialState, firstAction);
             // keep the correct actions
