@@ -1,6 +1,6 @@
 {
   "name": "ngrx-undo",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "description": "Undo support for @ngrx/store",
   "license": "MIT",
   "repository": "brechtbilliet/ngrx-undo",
@@ -32,7 +32,7 @@
     "@angular/compiler": "^8.2.1",
     "@angular/compiler-cli": "^8.2.1",
     "@angular/core": "^8.2.1",
-    "@ngrx/store": "^7.0.0",
+    "@ngrx/store": "^8.2.0",
     "@types/node": "^6.0.38",
     "awesome-typescript-loader": "^2.2.1",
     "core-js": "^2.4.1",
@@ -48,6 +48,6 @@
     "zone.js": "^0.9.1"
   },
   "peerDependencies": {
-    "@ngrx/store": "^7.0.0"
+    "@ngrx/store": "^8.0.0"
   }
 }
