@@ -1,53 +1,53 @@
 {
-    "name": "ngrx-undo",
-    "version": "7.0.0",
-    "description": "Undo support for @ngrx/store",
-    "license": "MIT",
-    "repository": "brechtbilliet/ngrx-undo",
-    "author": {
-        "name": "Brecht Billiet",
-        "email": "billietbrecht@gmail.com",
-        "url": "http://www.brecht.io/"
-    },
-    "engines": {
-        "node": ">= 4",
-        "npm": ">= 3"
-    },
-    "scripts": {
-        "karma": "karma start --single-run",
-        "clean:pre": "rimraf release",
-        "clean:post": "rimraf src/**/*.ngfactory.ts",
-        "copy": "cpy LICENSE package.json README.md release",
-        "buildprod:js": "ngc -p tsconfig.dist.json",
-        "buildprod:umd": "rollup -c rollup.config.js",
-        "buildprod:uglify": "uglifyjs -c --screw-ie8 --comments -o ./release/bundles/ngrx-undo.min.umd.js ./release/bundles/ngrx-undo.umd.js",
-        "prebuildprod": "npm run clean:pre",
-        "postbuildprod": "npm run clean:post && npm run copy",
-        "buildprod": "npm run buildprod:js && npm run buildprod:umd && npm run buildprod:uglify",
-        "deploy": "npm run buildprod && cd ./release && npm publish"
-    },
-    "main": "./bundles/ngrx-undo.umd.js",
-    "module": "./index.js",
-    "devDependencies": {
-        "@angular/compiler": "^7.0.0",
-        "@angular/compiler-cli": "^7.0.0",
-        "@angular/core": "^7.0.0",
-        "@ngrx/store": "^7.0.0",
-        "@types/node": "^6.0.38",
-        "awesome-typescript-loader": "^2.2.1",
-        "core-js": "^2.4.1",
-        "cpy-cli": "^1.0.1",
-        "rimraf": "2.5.4",
-        "rollup": "^0.34.13",
-        "rxjs": "6.0.0",
-        "ts-loader": "^0.8.2",
-        "tslint": "^3.15.1",
-        "tslint-loader": "^2.1.5",
-        "typescript": "^3.1.1",
-        "uglify-js": "^3.4.9",
-        "zone.js": "^0.8.26"
-    },
-    "peerDependencies": {
-        "@ngrx/store": "^7.0.0"
-    }
+  "name": "ngrx-undo",
+  "version": "8.0.0",
+  "description": "Undo support for @ngrx/store",
+  "license": "MIT",
+  "repository": "brechtbilliet/ngrx-undo",
+  "author": {
+    "name": "Brecht Billiet",
+    "email": "billietbrecht@gmail.com",
+    "url": "http://www.brecht.io/"
+  },
+  "engines": {
+    "node": ">= 4",
+    "npm": ">= 3"
+  },
+  "scripts": {
+    "karma": "karma start --single-run",
+    "clean:pre": "rimraf release",
+    "clean:post": "rimraf src/**/*.ngfactory.ts",
+    "copy": "cpy LICENSE package.json README.md release",
+    "buildprod:js": "ngc -p tsconfig.dist.json",
+    "buildprod:umd": "rollup -c rollup.config.js",
+    "buildprod:uglify": "uglifyjs -c --screw-ie8 --comments -o ./release/bundles/ngrx-undo.min.umd.js ./release/bundles/ngrx-undo.umd.js",
+    "prebuildprod": "npm run clean:pre",
+    "postbuildprod": "npm run clean:post && npm run copy",
+    "buildprod": "npm run buildprod:js && npm run buildprod:umd && npm run buildprod:uglify",
+    "deploy": "npm run buildprod && cd ./release && npm publish"
+  },
+  "main": "./bundles/ngrx-undo.umd.js",
+  "module": "./index.js",
+  "devDependencies": {
+    "@angular/compiler": "^8.2.1",
+    "@angular/compiler-cli": "^8.2.1",
+    "@angular/core": "^8.2.1",
+    "@ngrx/store": "^8.2.0",
+    "@types/node": "^6.0.38",
+    "awesome-typescript-loader": "^2.2.1",
+    "core-js": "^2.4.1",
+    "cpy-cli": "^1.0.1",
+    "rimraf": "2.5.4",
+    "rollup": "^0.34.13",
+    "rxjs": "6.5.2",
+    "ts-loader": "^0.8.2",
+    "tslint": "^3.15.1",
+    "tslint-loader": "^2.1.5",
+    "typescript": "^3.5.3",
+    "uglify-js": "^3.4.9",
+    "zone.js": "^0.9.1"
+  },
+  "peerDependencies": {
+    "@ngrx/store": "^8.0.0"
+  }
 }
