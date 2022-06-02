@@ -31,7 +31,7 @@
   "devDependencies": {
     "@angular/compiler": "^8.2.1",
     "@angular/compiler-cli": "^8.2.1",
-    "@angular/core": "^8.2.1",
+    "@angular/core": "^11.0.5",
     "@ngrx/store": "^8.2.0",
     "@types/node": "^6.0.38",
     "awesome-typescript-loader": "^2.2.1",
